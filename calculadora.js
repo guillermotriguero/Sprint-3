@@ -1,5 +1,4 @@
-function main(){
-    
+
 
     //Cogemos todos los valores de la calculadora-botones
 
@@ -20,69 +19,138 @@ function main(){
     let multiplicacion = document.getElementById("multiplicacion");
     let division = document.getElementById("division");
     let igual = document.getElementById("igual");
+    let reset = document.getElementById("reset");
 
-    // Hacer que la pantalla de resultados con eventos
+// Para hacer los cálculos
+
+    let operando1;
+    let operando2;
+    let operacion;
+
+    // Hacer que la pantalla dé resultados con eventos
 
     // Le decimos que al clicar a UNO añada a Resultado un 1, 2...
 
     uno.onclick = function(){
-        alert("Hola");
+        resultado.textContent = resultado.textContent + "1";
     }
 
-    dos.onclick = function(e){
-        resultado.TextContent = resultado.TextContent + "2";
+    dos.onclick = function(){
+        resultado.textContent = resultado.textContent + "2";
     }
 
-    tres.onclick = function(e){
+    tres.onclick = function(){
         resultado.textContent = resultado.textContent + "3";
     }
 
-    cuatro.onclick = function(e){
+    cuatro.onclick = function(){
         resultado.textContent = resultado.textContent + "4";
     }
 
-    cinco.onclick = function(e){
+    cinco.onclick = function(){
         resultado.textContent = resultado.textContent + "5";
     }
 
-    seis.onclick = function(e){
+    seis.onclick = function(){
         resultado.textContent = resultado.textContent + "6";
     }
 
-    siete.onclick = function(e){
+    siete.onclick = function(){
         resultado.textContent = resultado.textContent + "7";
     }
 
-    ocho.onclick = function(e){
+    ocho.onclick = function(){
         resultado.textContent = resultado.textContent + "8";
     }
 
-    nueve.onclick = function(e){
+    nueve.onclick = function(){
         resultado.textContent = resultado.textContent + "9";
     }
 
-    cero.onclick = function(e){
+    cero.onclick = function(){
         resultado.textContent = resultado.textContent + "0";
+    }
+
+    coma.onclick = function(){
+        resultado.textContent = resultado.textContent + ".";
     }
 
     ///////////////
 
-    suma.onclick = function(e){
-        resultado.textContent = resultado.textContent + "1";
+    reset.onclick = function(){
+        limpiar();
+    }
+
+    suma.onclick = function(){
+        // Para guardarla suma de cifras que teníamos hasta ahora
+        operando1 = resultado.textContent;
+        
+        // La operación en sí
+        
+        operacion = "+";
+        limpiar();
     }
     
-    resta.onclick = function(e){
-        resultado.textContent = resultado.textContent + "1";
-    }
+    resta.onclick = function(){
+       // Para guardarla suma de cifras que teníamos hasta ahora
+       operando1 = resultado.textContent;
+        
+       // La operación en sí
+       
+       operacion = "-";
+       limpiar();
+   }
     
-    multiplicacion.onclick = function(e){
-        resultado.textContent = resultado.textContent + "1";
+    multiplicacion.onclick = function(){
+       // Para guardarla suma de cifras que teníamos hasta ahora
+       operando1 = resultado.textContent;
+        
+       // La operación en sí
+       
+       operacion = "*";
+       limpiar();
+   }
+
+    division.onclick = function(){
+       // Para guardarla suma de cifras que teníamos hasta ahora
+       operando1 = resultado.textContent;
+        
+       // La operación en sí
+       
+       operacion = "/";
+       limpiar();
+   }
+
+   igual.onclick = function(){
+        operando2 = resultado.textContent;
+        resolver();
     }
 
-    division.onclick = function(e){
-        resultado.textContent = resultado.textContent + "1";
+    function limpiar(){
+        resultado.textContent = "";
     }
 
+    function resolver(){
+        let solucion = 0;
+            switch(operacion){
+                case "+":
+                    solucion = parseFloat(operando1) + parseFloat(operando2);
+                    break;
 
-}
+                case "-":
+                    solucion = parseFloat(operando1) - parseFloat(operando2);
+                    break;
+
+                case "*":
+                    solucion = parseFloat(operando1) * parseFloat(operando2);
+                    break;
+
+                case "/":
+                    solucion = parseFloat(operando1) / parseFloat(operando2);
+                    break;
+            }
+        
+        limpiar();
+        resultado.textContent=solucion;
+    }
 
