@@ -1,6 +1,4 @@
-
-
-    //Cogemos todos los valores de la calculadora-botones
+//Cogemos todos los valores de la calculadora-botones
 
     let resultado= document.getElementById("resultado");
     let uno = document.getElementById("1");
@@ -27,9 +25,9 @@
     let operando2;
     let operacion;
 
-    // Hacer que la pantalla dé resultados con eventos
+// Hacer que la pantalla dé resultados con eventos
 
-    // Le decimos que al clicar a UNO añada a Resultado un 1, 2...
+// Le decimos que al clicar a UNO añada a Resultado un 1, 2...
 
     uno.onclick = function(){
         resultado.textContent = resultado.textContent + "1";
@@ -75,7 +73,7 @@
         resultado.textContent = resultado.textContent + ".";
     }
 
-    ///////////////
+///////////////
 
     reset.onclick = function(){
         limpiar();
